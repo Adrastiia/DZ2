@@ -1,0 +1,727 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DZ-2</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+        body{
+            background-color:lightcoral ;
+            margin: 0px 20px;
+        }
+        .container{
+            display: grid;
+            height: 100vh;
+            grid-template-columns: repeat(6, 1fr);
+            grid-template-rows: repeat(5, 1fr);
+            grid-template-areas:
+                "prva prva prva prva prva prva"
+                "nav nav nav nav nav nav"
+                "druga treca cetvrta peta sesta sedma"
+                "osma osma osma deveta deveta deveta"
+                "footer footer footer footer footer footer";
+        }
+        .naslov{
+            background-color: lightpink;
+            color: darkred;
+            position: relative;
+            height: 60px;
+            top: -10px;
+            padding: 10px;
+            border: 1px dashed aquamarine;
+        }
+        .prva{
+            grid-area: prva;
+            z-index: 1;
+            padding: 10px;
+            
+        }
+        .druga{
+            grid-area: druga;
+            padding: 10px;
+        }
+        .treca{
+            grid-area: treca;
+            padding: 10px;
+        }
+        .cetvrta{
+            grid-area: cetvrta;
+            padding: 10px;
+        }
+        .peta{
+            grid-area: peta;
+            padding: 10px;
+        }
+        .sesta{
+            grid-area: sesta;
+            padding: 10px;
+        }
+        .sedma{
+            grid-area: sedma;
+            padding: 10px;
+        }
+        .osma{
+            grid-area: osma;
+            padding: 10px;
+        }
+        .deveta{
+            grid-area: deveta;
+            padding: 10px;
+        }
+        nav{
+            grid-area: nav;
+            padding: 10px;
+        }
+        footer{
+            grid-area: footer;
+            background-color: aqua;
+            padding: 20px;
+            font-family: sans-serif;
+            text-align: center;
+            color: hotpink;
+            text-shadow: 1px 1px 1px black;
+            border-top: 2px dashed hotpink;
+            margin-top: 5px;
+        }
+        footer:hover{
+            background-color: yellow;
+            border-top: 3px solid aqua;
+            color: hotpink;
+            font-size: 20pt;
+            margin-bottom: 10px;
+        }
+        .wrapper{
+            width: 100%;
+            position: relative;
+        }
+        .wrapper img{
+            position: relative;
+            width: 100%;
+            border-radius: 5px;
+            border: 5px dashed slateblue;
+            justify-content: center;
+        }
+        h2{
+            position: absolute;
+            bottom: 120px;
+            left: 0;
+            right: 0;
+            text-align: center;
+            justify-content: center;
+            background-color: plum;
+            color: purple;
+            border-top: 1px solid slateblue;
+            padding: 5px;
+            font-size: 18pt;
+            font-family: sans-serif;
+            display: none;
+            margin: 2%;
+        }
+        p1{
+            position: absolute;
+            bottom: 90px;
+            left: 0;
+            right: 0;
+            text-align: center;
+            justify-content: center;
+            background-color: plum;
+            color: rgb(176, 12, 176);
+            border-bottom: 1px solid slateblue;
+            padding: 2px;
+            font-size: 16pt;
+            font-family: sans-serif;
+            display: none;
+            margin: 2%;
+        }
+        .osma p1{
+            margin: 0.7%;
+            bottom: 91px;
+        }
+        .deveta p1{
+            margin: 0.7%;
+            bottom: 91px;
+        }
+        .osma h2{
+            margin: 0.7%;
+        }
+        .deveta h2{
+            margin: 0.7%;
+        }
+        .wrapper:hover h2{
+            display: block;
+            position: absolute;
+            z-index: 1;
+            opacity: 85%;
+        }
+        .wrapper:hover p1{
+            display: block;
+            position: absolute;
+            z-index: 1;
+            opacity: 85%;
+            }
+        .wrapper:hover img{
+            transform: scale(1.1);
+            transform: translateY(50px);
+            z-index: 1;
+            border: 5px solid aqua;
+        }
+        .osma:hover img{
+            transform: translateY(-70px);
+            z-index: 1;
+            border: 5px solid aqua;
+        }
+        .deveta:hover img{
+            transform: translateY(-70px);
+            z-index: 1;
+            border: 5px solid aqua;
+        }
+        p{
+            font-size: 24pt;
+            text-align: center;
+            background-color: aquamarine;
+            color: darkmagenta;
+            border: 3px dashed rebeccapurple;
+            padding: 20px;
+            font-family: sans-serif;
+            
+        }
+        .naslov h1{
+            font-size: 24pt;
+            font-weight: bold;
+            font-family: sans-serif;
+            text-justify: auto;
+            text-shadow: 1px 1px 1px black;
+        }
+        .naslov:hover h1{
+            font-size: 30pt;
+        }
+        .naslov:hover{
+            color: darkred;
+            height: 50px;
+            top: -10px;
+            padding: 10px;
+            color: darkmagenta;
+            background-color: aquamarine;
+            border: 1px dashed rebeccapurple;
+            font-weight: bold;
+            font-family: sans-serif;
+        }
+        .gore, p{
+            width: 400px;
+            position: absolute;
+            top: -400px;
+            left: 300px;
+        }
+        .gore img{
+            width: 400px;
+        }
+        
+        @keyframes anim{
+            0%{
+                top: -400px;
+                left: 300px;
+            }
+            100%{
+                top: 50px;
+                left: 300px;
+            }
+        }
+        @keyframes anim1{
+            0%{
+                top: -400px;
+                left: 400px;
+            }
+            100%{
+                top: 100px;
+                left: 400px;
+   
+            }
+        }
+        .naslov:hover .gore{
+            animation: anim 2s linear 0s 1 normal forwards;
+        }
+        .naslov:hover p{
+            animation: anim1 2s linear 1s 1 normal forwards;
+        }
+        .prva:hover ~.treca{
+            opacity: 15%;
+        }
+        .prva:hover ~.cetvrta{
+            opacity: 15%;
+        }
+        .prva:hover ~.peta{
+            opacity: 15%;
+            
+        }
+        .prva:hover ~.druga{
+            opacity: 15%;
+        }
+        .prva:hover ~.sesta{
+            opacity: 15%;
+        }
+        .prva:hover ~.sedma{
+            opacity: 15%;
+        }
+        .prva:hover ~.osma{
+            opacity: 15%;
+        }
+        .prva:hover ~.deveta{
+            opacity: 15%;
+        }
+        input{
+            display: none;
+        }
+        nav label{
+            display: none;
+            color: white;
+            font-family: sans-serif;
+            font-weight: bold;
+            font-size: 8pt;
+        }
+        nav label img{
+            height: 50px; 
+         }
+        a{
+            color: inherit;
+            text-decoration: none;
+        }
+        nav{
+            display: flex;
+            justify-content: space-between;
+            text-align: center;
+            width: 100%;
+            margin-bottom: 10px;
+        }
+        li{
+            font-family: sans-serif;
+            font-size: 20pt;
+            font-weight: bold;
+        }
+        ul li ul li{
+            display: block;
+            font-size: 16pt;
+            text-align: center;
+            width: 100%;
+            text-wrap: nowrap;
+            
+            
+        }
+        ul li ul li:hover{
+            background-color: hotpink;
+            color:yellow;
+            display: block;
+            font-size: 16pt;
+            text-align: center;
+            width: 100%;
+        }
+        ul{
+            list-style: none;
+            position: relative;
+            background-color: lightpink;
+            width: 100%;
+            color: darkred;
+            top: -20px;
+            border: 2px dashed darkred;
+        }
+        ul>li{
+            display: inline-block;
+            padding: 5px;
+            position: relative;
+            padding: 10px;
+        }
+        ul>li ul{
+            display: none;
+            position: absolute;
+            left: 0;
+            top: 100%;
+            z-index: 1;
+        }
+        ul li:hover{
+            color: rebeccapurple;
+            background-color: aquamarine;
+        }
+        ul>li:hover ul{
+            display: block;
+            color: darkblue;
+            background-color: lightsteelblue;
+            width: 100%;
+        }
+     
+        @media (max-width:800px){
+            .container{
+                grid-template-columns: 1fr 1fr 1fr;
+                grid-template-areas:
+                    "prva prva prva"
+                    "nav nav nav"
+                    "druga treca cetvrta"
+                    "peta sesta sedma"
+                    "osma osma osma"
+                    "deveta deveta deveta"
+                    "footer footer footer";
+            }
+            .gore, p{
+                width: 300px;
+                position: absolute;
+                top: -400px;
+                left: 100px;
+                font-size: 12pt;
+            }
+            .gore img{
+                width: 200px;
+            }
+            .naslov h1{
+                font-size: 20pt;
+            }
+            h2{
+                font-size: 14pt;
+                bottom: 70px;
+            }
+            .naslov{
+                height: 50px;
+            }
+            .naslov:hover h1{
+                font-size: 24pt;
+            }
+            p1{
+                font-size: 12pt;
+                bottom: 47px;
+            }
+            .osma:hover img{
+                transform: scale(1.1);
+                transform: translateY(15px);
+                z-index: 1;
+                border: 3px solid aqua;
+            }
+            .deveta:hover img{
+                transform: scale(1.1);
+                transform: translateY(15px);
+                z-index: 1;
+                border: 3px solid aqua;
+            }
+            .osma p1{
+                margin: 0.5%;
+                bottom: 47px;
+            }
+            .deveta p1{
+                margin: 0.5%;
+                bottom: 47px;
+            }
+            .osma h2{
+                margin: 0.5%;
+                bottom: 70px;
+            }
+            .deveta h2{
+                margin: 0.5%;
+                bottom: 70px;
+            }
+            @keyframes anim{
+                0%{
+                    top: -400px;
+                    left: 100px;
+                }
+                100%{
+                    top: 50px;
+                    left: 100px;
+                }
+            }
+            @keyframes anim1{
+                0%{
+                    top: -400px;
+                    left: 200px;
+                }
+                100%{
+                    top: 60px;
+                    left: 200px;
+    
+                }
+            }
+            nav{
+                flex-direction: column;
+                text-align: center;
+                margin-bottom: 20px;
+                width: 100%;
+                height: 100%;
+                padding: 20px;
+                }
+            nav label{
+                display: block;
+                position: absolute;
+                top: 50px;
+                height: 60px;
+                width: 90%;
+                left: 40px;
+                margin-top: 5px;
+                color: white;
+                font-family: sans-serif;
+                font-weight: bold;
+                font-size: 8pt;
+                font-style: italic;
+                background-color: darkred;
+                border: 2px dashed hotpink;
+                }
+                ul{
+                    display: none;
+                }
+                ul li{
+                    width: 100%;
+                    padding: 0;
+                }
+                ul>li ul{
+                    position: relative;
+                    margin: 0;
+                    padding: 0;
+                    border: 0px;
+                }
+                ul>li ul>li{
+                    border-bottom: 2px solid aquamarine;
+                    text-align: center;
+                }
+                ul>li ul>li:hover{
+                    text-align: center;
+                }
+                input:checked~ul{
+                    display: block;
+                    top: 25px;
+                    z-index: 1;
+                }
+                footer:hover{
+                    font-size: 14pt;
+                }
+            }
+        
+            @media (max-width:450px){
+            .container{
+                grid-template-columns: 1fr;
+                grid-template-areas:
+                    "prva"
+                    "nav"
+                    "druga" 
+                    "treca" 
+                    "cetvrta"
+                    "peta" 
+                    "sesta" 
+                    "sedma"
+                    "osma" 
+                    "deveta"
+                    "footer"
+            }
+            
+                .naslov h1{
+                    font-size: 16pt;
+                    text-align: center;
+                }
+                .naslov:hover h1{
+                    font-size: 18pt;
+                }
+                .wrapper:hover h2{
+                    display: none;
+                }
+               
+                .gore{
+                    display: none;
+                }
+                .wrapper:hover p1{
+                    display: none;
+                }
+                .naslov{
+                    height: 40px;
+                    top: -10px;
+                    padding: 5px;
+                }
+                .naslov:hover{
+                    height: 40px;
+                    padding: 5px;
+                }
+                .wrapper{
+                    width: 55%;
+                    position: relative;
+                    justify-content: center;
+                }
+                .wrapper img{
+                    height: 100%;
+                    object-fit: cover;
+                    border: 2px dashed slateblue;
+                    margin-left:80px;
+                    position: relative;
+                }
+
+                .wrapper:hover img{
+                    transform: scale(1.1);
+                    z-index: 1;
+                    border: 3px solid aqua;
+                }
+                .osma:hover img{
+                    transform: scale(1.1);
+                    z-index: 1;
+                    border: 3px solid aqua;
+                }
+                .deveta:hover img{
+                    transform: scale(1.1);
+                    z-index: 1;
+                    border: 3px solid aqua;
+                }
+                footer{
+                    padding: 10px;
+                }
+                nav{
+                    flex-direction: column;
+                    text-align: center;
+                    margin-bottom: 20px;
+                }
+                nav label{
+                    display: block;
+                    position: absolute;
+                    width: 86%;
+                    display: block;
+                    position: absolute;
+                    top: 50px;
+                    height: 60px;
+                    width: 77%;
+                    left: 50px;
+                    margin-top: 5px;
+                    color: white;
+                    font-family: sans-serif;
+                    font-weight: bold;
+                    font-size: 8pt;
+                    font-style: italic;
+                    background-color: darkred;
+                    border: 2px dashed hotpink;    
+                }
+                li{
+                    font-size: 16px;
+                }
+                ul{
+                    display: none;
+                }
+                ul li{
+                    width: 100%;
+                    padding: 0;
+                }
+                ul>li ul{
+                    position: relative;
+                    margin: 0;
+                    padding: 0;
+                    border: 0px;
+                }
+                ul>li ul>li{
+                    border-bottom: 2px solid aquamarine;
+                    text-align: center;
+                    font-size: 14px;
+                }
+                ul>li ul>li:hover{
+                    text-align: center;
+                    font-size: 14px;
+                }
+                input:checked~ul{
+                    display: block;
+                    top: 25px;
+                    z-index: 1;
+                }
+            }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <nav> 
+            <input type="checkbox" id="checkbox">
+                <ul>
+                    <li><a href="">O meni</a></li>
+                    <li><a href="">Više fotki</a>
+                        <ul>
+                            <li><a href=""></a>Beba Fleka</li>
+                            <li><a href=""></a>Velika Fleka</li>
+                        </ul>
+                    </li>
+                    <li><a href="">Videa</a></li>
+                    <li><a href="">Kontakt</a></li>
+                    <li><a href="">Merch</a>
+                        <ul>
+                            <li><a href=""></a>Majice</li>
+                            <li><a href=""></a>Šalice</li>
+                            <li><a href=""></a>Ostalo</li>
+                        </ul>
+                    </li>
+                </ul>
+        <label for="checkbox"><img src="Slike/Adobe_Express_20230708_2018370_1.png" alt="">Klikni za više</label>
+        </nav>
+        <section class="prva">  
+        <div class="wrapper1">
+            <div class="naslov">
+            <h1>Princess Flekica</h1>
+            
+                <div class="gore">
+                    <img src="Slike/Adobe_Express_20230716_1149290.8158584448573044.png" alt="">
+                    <p>Dobrodošli na moju stranicu! Pratite me i na TikToku i Instagramu <span style="font-weight: bold;text-decoration: underline;">@princess.flekica</span></p>
+                </div>
+                
+            </div>
+            
+        </div>
+        </section>
+        <section class="druga">
+            <div class="wrapper">
+                <img src="Slike/1.jpeg" alt="">
+                <h2>Rawr!</h2>
+                <p1>Ne brinite, ne grizem</p1>
+            </div>
+        </section>
+        <section class="treca">
+            <div class="wrapper">
+                <img src="Slike/2.jpg" alt="">
+                <h2>Blep!</h2>
+                <p1>Boop the snoot!</p1>
+            </div>
+        </section>
+        <section class="cetvrta">
+            <div class="wrapper">
+                <img src="Slike/3.jpeg" alt="">
+                <h2>Boop!</h2>
+                <p1>Što to tamo leti?!</p1>
+            </div>
+        </section>
+        <section class="peta">
+            <div class="wrapper">
+                <img src="Slike/4.jpeg" alt="">
+                <h2>Pogled u daljinu</h2>
+                <p1>Dosta fotkanja!</p1>
+            </div>
+        </section>
+        <section class="sesta">
+            <div class="wrapper">
+                <img src="Slike/5.jpg" alt="">
+                <h2>HAHA</h2>
+                <p1>Hoćeš čuti vic?</p1>
+            </div>
+        </section>
+        <section class="sedma">
+            <div class="wrapper">
+                <img src="Slike/6.jpeg" alt="">
+                <h2>Mini me</h2>
+                <p1>Smol Fleka</p1>
+            </div>
+        </section>
+        <section class="osma">
+            <div class="wrapper">
+                <img src="Slike/7.jpeg" alt="">
+                <h2>Gric, gric!</h2>
+                <p1>Pazi oštar pas!</p1>
+            </div>
+        </section>
+        <section class="deveta">
+            <div class="wrapper">
+                <img src="Slike/8.jpeg" alt="">
+                <h2>Spavanac!</h2>
+                <p1>Dosta za danas</p1>
+            </div>
+        </section>
+        <footer>
+            <h3>princess.flekica@gmail.com</h3>
+        </footer>
+    </div>
+</body>
+</html>
